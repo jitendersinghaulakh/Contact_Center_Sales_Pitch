@@ -34,6 +34,19 @@ export const slides: SlideContent[] = [
     },
     {
         id: 3,
+        title: "Defining 'The Look' of AI in Contact Center",
+        purpose: "Visualizing the AI-orchestrated stack.",
+        overview: "Modern AI is not a feature, it's the orchestration layer:",
+        points: [
+            "Omnichannel Ingest: Voice, Chat, Email through a single Brain",
+            "The Orchestrator: Real-time NLP/NLU decoding intent and context",
+            "Dynamic Response: Intelligent IVR vs. Warm Agent Transfer with full context",
+            "Feedback Loop: Automated QA feeding the Knowledge Management System"
+        ],
+        salesMessage: "“AI is the central nervous system of the modern contact center.”"
+    },
+    {
+        id: 4,
         title: "Evolving Customer Demand in Contact Centers",
         purpose: "Creates urgency by framing customer expectations.",
         overview: "Customer expectations have shifted dramatically:",
@@ -46,7 +59,7 @@ export const slides: SlideContent[] = [
         salesMessage: "“The gap between what customers expect and what contact centers deliver is widening.”"
     },
     {
-        id: 4,
+        id: 5,
         title: "Contact Centers Becoming Experience-Driven, AI-Enabled Hubs",
         purpose: "Positions AI as inevitable, not optional.",
         overview: "Contact centers are evolving across four dimensions:",
@@ -59,7 +72,7 @@ export const slides: SlideContent[] = [
         salesMessage: "“Contact centers are no longer cost centers — they’re experience hubs.”"
     },
     {
-        id: 5,
+        id: 6,
         title: "Key Challenges in Traditional Contact Centers",
         purpose: "Creates pain before offering the solution.",
         overview: "Most legacy contact centers struggle with:",
@@ -73,7 +86,7 @@ export const slides: SlideContent[] = [
         salesMessage: "“These challenges directly hurt CX, agent morale, and margins.”"
     },
     {
-        id: 6,
+        id: 7,
         title: "Contact Centers Transforming with AI and Automation at Scale",
         purpose: "Introduces AI as the lever for measurable improvement.",
         overview: "AI enables:",
@@ -86,7 +99,7 @@ export const slides: SlideContent[] = [
         salesMessage: "“AI improves outcomes for customers, agents, and operations — simultaneously.”"
     },
     {
-        id: 7,
+        id: 8,
         title: "Reimagining IVR: From Menus to Meaningful Conversations",
         purpose: "Shows tangible modernization of a familiar pain point.",
         overview: "Traditional IVR menus are replaced with conversational AI that:",
@@ -99,7 +112,7 @@ export const slides: SlideContent[] = [
         salesMessage: "“No more ‘Press 1, Press 2’ — IVR becomes a conversation.”"
     },
     {
-        id: 8,
+        id: 9,
         title: "Industry Insight: From Reactive FAQs to Proactive Virtual Assistants",
         purpose: "Demonstrates strategic maturity.",
         overview: "Leading organizations are shifting from reactive support to proactive engagement:",
@@ -112,7 +125,7 @@ export const slides: SlideContent[] = [
         salesMessage: "“The best contact centers prevent calls — they don’t just answer them.”"
     },
     {
-        id: 9,
+        id: 10,
         title: "Leading Enterprises Transforming Contact Centers",
         purpose: "Builds credibility and momentum.",
         overview: "Market drivers include rising customer expectations, high legacy platform costs, increased compliance pressure, and demand for higher agent productivity.",
@@ -124,7 +137,7 @@ export const slides: SlideContent[] = [
         salesMessage: "“This transformation is already happening — the question is how fast you move.”"
     },
     {
-        id: 10,
+        id: 11,
         title: "Three-Phase Capability Rollout",
         purpose: "Reduces risk concerns.",
         overview: "Transformation is delivered in phases:",
@@ -145,7 +158,7 @@ export const slides: SlideContent[] = [
         salesMessage: "“We meet you where you are — no big-bang transformation required.”"
     },
     {
-        id: 11,
+        id: 12,
         title: "Who Benefits from AI-Powered Transformation",
         purpose: "Shows value across stakeholders.",
         overview: "A multi-stakeholder win:",
@@ -159,7 +172,7 @@ export const slides: SlideContent[] = [
         salesMessage: "“This isn’t a single-stakeholder win — everyone benefits.”"
     },
     {
-        id: 12,
+        id: 13,
         title: "Outcomes & Business Impact",
         purpose: "Closes with numbers.",
         overview: "Typical outcomes include:",
@@ -172,7 +185,7 @@ export const slides: SlideContent[] = [
         salesMessage: "“These are proven, measurable results — not theoretical AI benefits.”"
     },
     {
-        id: 13,
+        id: 14,
         title: "Precision AI: Use Cases for IVR & Agent Desktop",
         purpose: "Deep dive into tangible AI applications.",
         overview: "AI creates value at both the customer edge and the agent core:",
@@ -181,19 +194,6 @@ export const slides: SlideContent[] = [
             "Agent Desktop: Real-time Agent Assist (Co-pilot), Auto-summarization of calls, Next-Best-Action (NBA) prompts, Automated wrap-up & QA"
         ],
         salesMessage: "“Agent augmentation is the fastest path to operational efficiency.”"
-    },
-    {
-        id: 14,
-        title: "Defining 'The Look' of AI in Contact Center",
-        purpose: "Visualizing the AI-orchestrated stack.",
-        overview: "Modern AI is not a feature, it's the orchestration layer:",
-        points: [
-            "Omnichannel Ingest: Voice, Chat, Email through a single Brain",
-            "The Orchestrator: Real-time NLP/NLU decoding intent and context",
-            "Dynamic Response: Intelligent IVR vs. Warm Agent Transfer with full context",
-            "Feedback Loop: Automated QA feeding the Knowledge Management System"
-        ],
-        salesMessage: "“AI is the central nervous system of the modern contact center.”"
     },
     {
         id: 15,

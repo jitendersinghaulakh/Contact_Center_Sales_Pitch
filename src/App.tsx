@@ -21,7 +21,7 @@ function App() {
   };
 
   return (
-    <div className="app">
+    <div className="app-container">
       <aside className="sidebar">
         <div className="logo-section">
           <div className="infosys-logo">

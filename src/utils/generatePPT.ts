@@ -25,8 +25,8 @@ export const generatePPT = (slides: SlideContent[]) => {
         } else {
             s.background = { color: "FFFFFF" };
 
-            // Add corner decorations for Slide 14 if possible with shapes
-            if (slide.id === 14) {
+            // Add corner decorations for Slide 3 if possible with shapes
+            if (slide.id === 3) {
                 s.addShape(pres.ShapeType.ellipse, {
                     x: 10, y: -1, w: 4, h: 4, fill: { color: "00BFB3", alpha: 80 }
                 });
@@ -41,7 +41,7 @@ export const generatePPT = (slides: SlideContent[]) => {
             x: 0.5,
             y: slide.id === 1 ? 2.5 : 0.5,
             w: slide.id === 1 ? "60%" : "90%",
-            fontSize: slide.id === 1 ? 48 : slide.id === 14 ? 42 : 32,
+            fontSize: slide.id === 1 ? 48 : slide.id === 3 ? 42 : 32,
             bold: true,
             color: slide.id === 1 ? "FFFFFF" : "001F3F",
             align: "left",
@@ -96,8 +96,8 @@ export const generatePPT = (slides: SlideContent[]) => {
             });
         }
 
-        // Defining 'The Look' (Slide 14) 4-Pillar Flow
-        else if (slide.id === 14 && slide.points) {
+        // Defining 'The Look' (Slide 3) 4-Pillar Flow
+        else if (slide.id === 3 && slide.points) {
             const pillars = ["INGEST", "ORCHESTRATION", "DYNAMIC LOGIC", "VALUE OUTPUT"];
             pillars.forEach((pillar, idx) => {
                 const xPos = 0.5 + (idx * 3.2);
@@ -130,8 +130,8 @@ export const generatePPT = (slides: SlideContent[]) => {
             });
         }
 
-        // General Content (Overview & Points) - Skip for Slide 1, 2, 14
-        else if (slide.id !== 1 && slide.id !== 2 && slide.id !== 14) {
+        // General Content (Overview & Points) - Skip for Slide 1, 2, 3
+        else if (slide.id !== 1 && slide.id !== 2 && slide.id !== 3) {
             let yPos = 1.8;
             if (typeof slide.overview === "string") {
                 s.addText(slide.overview, {

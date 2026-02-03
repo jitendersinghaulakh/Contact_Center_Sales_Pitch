@@ -54,7 +54,7 @@ const SlideRenderer: React.FC<Props> = ({ slide }) => {
                         </div>
                     )}
 
-                    {slide.id === 4 && slide.points && (
+                    {slide.id === 5 && slide.points && (
                         <div className="dimensions-grid">
                             {slide.points.map((point, idx) => {
                                 const [title, desc] = point.split(' — ');
@@ -71,7 +71,7 @@ const SlideRenderer: React.FC<Props> = ({ slide }) => {
                         </div>
                     )}
 
-                    {slide.id === 5 && slide.points && (
+                    {slide.id === 6 && slide.points && (
                         <div className="challenges-list">
                             {slide.points.map((point, idx) => (
                                 <div key={idx} className="challenge-item">
@@ -82,7 +82,7 @@ const SlideRenderer: React.FC<Props> = ({ slide }) => {
                         </div>
                     )}
 
-                    {slide.id === 14 && slide.points && (
+                    {slide.id === 3 && slide.points && (
                         <div className="look-of-ai-container">
                             <div className="corner-dec-tr"></div>
                             <div className="corner-dec-bl"></div>
@@ -187,7 +187,7 @@ const SlideRenderer: React.FC<Props> = ({ slide }) => {
                         </div>
                     )}
 
-                    {![4, 5, 14, 15].includes(slide.id) && slide.points && (
+                    {![3, 5, 6, 15].includes(slide.id) && slide.points && (
                         <div className="grid-2">
                             {slide.points.map((point, idx) => (
                                 <div key={idx} className="list-item">
