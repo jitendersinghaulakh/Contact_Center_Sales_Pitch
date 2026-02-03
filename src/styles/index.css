@@ -1,0 +1,554 @@
+:root {
+    --primary: #007CC3;
+    --secondary: #001F3F;
+    --accent: #00D1FF;
+    --text-main: #1A1A1A;
+    --text-muted: #555555;
+    --bg-main: #F8FAFC;
+    --bg-card: #FFFFFF;
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --transition: all 0.3s ease;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+.app {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.sidebar {
+    width: 300px;
+    background: var(--secondary);
+    color: white;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 10;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    background: linear-gradient(90deg, #fff, var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-list {
+    list-style: none;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.nav-item {
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    opacity: 0.6;
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    opacity: 1;
+}
+
+.nav-item.active {
+    background: var(--primary);
+    opacity: 1;
+    font-weight: 600;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: white;
+}
+
+.header {
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.slide-container {
+    flex: 1;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.slide-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    padding: 40px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-download {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0, 124, 195, 0.3);
+}
+
+.btn-download:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 124, 195, 0.4);
+}
+
+/* Slide Specific Styles */
+.slide-title {
+    font-size: 3rem;
+    color: var(--secondary);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.slide-subtitle {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.slide-section {
+    margin-top: 2rem;
+}
+
+.purpose-box {
+    background: #f0f7ff;
+    border-left: 4px solid var(--primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 2rem;
+}
+
+.purpose-label {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.overview-text {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.sales-message {
+    margin-top: auto;
+    padding: 2rem;
+    background: var(--secondary);
+    color: white;
+    border-radius: 12px;
+    text-align: center;
+    font-style: italic;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+/* Grids and Lists */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    transition: var(--transition);
+}
+
+.list-item:hover {
+    transform: translateX(10px);
+    background: #f8fbff;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: var(--primary);
+    border-radius: 50%;
+    margin-top: 0.5rem;
+    flex-shrink: 0;
+}
+
+/* Phases */
+.phases-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.phase-card {
+    background: white;
+    border: 1px solid #eee;
+    padding: 2rem;
+    border-radius: 16px;
+    transition: var(--transition);
+}
+
+.phase-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+.phase-number {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--primary);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.phase-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--secondary);
+}
+
+/* Metrics */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.metric-card {
+    text-align: center;
+    padding: 2rem;
+    background: #f0f7ff;
+    border-radius: 20px;
+}
+
+.metric-value {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary);
+    display: block;
+}
+
+.metric-label {
+    font-size: 1rem;
+    color: var(--secondary);
+    font-weight: 600;
+}
+
+/* TOC style matching image */
+.toc-line {
+    position: relative;
+    padding-left: 40px;
+}
+
+.toc-line::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #eee;
+}
+
+.toc-item {
+    position: relative;
+    padding: 1.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--secondary);
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    transition: var(--transition);
+}
+
+.nav-btn:hover:not(:disabled) {
+    background: var(--bg-main) !important;
+    color: var(--primary);
+    border-color: var(--primary) !important;
+}
+
+.hero-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #ffffff 0%, #f0f7ff 100%);
+    border-radius: 20px;
+}
+
+.text-secondary {
+    color: var(--primary);
+}
+
+/* Custom Scrollbar */
+.nav-list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.nav-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+/* Dimensional Grid for Slide 4 */
+.dimensions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.dimension-card {
+    padding: 1.5rem;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: var(--transition);
+}
+
+.dimension-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+}
+
+.dimension-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 700;
+    color: var(--secondary);
+}
+
+/* Numbered Challenges for Slide 5 */
+.challenges-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.challenge-item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem 2rem;
+    background: #fdfdfd;
+    border-radius: 100px;
+    border: 1px solid #f0f0f0;
+    transition: var(--transition);
+}
+
+.challenge-item:hover {
+    background: #fff;
+    border-color: var(--primary);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.challenge-number {
+    width: 40px;
+    height: 40px;
+    background: var(--secondary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.challenge-text {
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+/* Flow Layout for Slide 14 */
+.flow-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4rem;
+    position: relative;
+    padding: 0 2rem;
+}
+
+.flow-step {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    width: 22%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.flow-step::after {
+    content: '→';
+    position: absolute;
+    right: -25%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: var(--primary);
+    opacity: 0.5;
+}
+
+.flow-step:last-child::after {
+    display: none;
+}
+
+.step-icon {
+    width: 60px;
+    height: 60px;
+    background: #f0f7ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: var(--primary);
+}
+
+.step-title {
+    font-weight: 700;
+    color: var(--secondary);
+    font-size: 1.1rem;
+}
+
+/* Title Slide Hero Design */
+.slide-wrapper.title-slide {
+    background-image: linear-gradient(90deg, rgba(0, 31, 63, 0.9) 30%, rgba(0, 31, 63, 0.2) 100%), url('/images/hero.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 60px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.title-slide .slide-title {
+    color: white;
+    font-size: 5rem;
+    text-align: left;
+    margin-bottom: 1rem;
+    max-width: 700px;
+}
+
+.title-slide .slide-subtitle {
+    color: #00D1FF;
+    font-size: 2.5rem;
+    text-align: left;
+    font-weight: 300;
+}
+
+.title-slide .purpose-label {
+    color: rgba(255,255,255,0.6);
+}
+
+.title-slide .slide-section {
+    display: none; /* Hide overview on title slide as per image */
+}
+
+.title-slide .sales-message {
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+}
+
+.title-slide .hero-section {
+    background: transparent !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+}
+
+.title-slide .slide-content {
+    background: transparent !important;
+    box-shadow: none !important;
+    height: 100%;
+}
