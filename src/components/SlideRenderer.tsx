@@ -1,5 +1,5 @@
 import type { SlideContent } from '../data/slides';
-import { ArrowRight, TrendingUp, Zap, Activity, Cpu, Database, Search, MessageSquare } from 'lucide-react';
+import { ArrowRight, TrendingUp, Zap, Activity, Cpu, Database, Search, MessageSquare, Box } from 'lucide-react';
 
 interface Props {
     slide: SlideContent;
@@ -29,13 +29,28 @@ const SlideRenderer: React.FC<Props> = ({ slide }) => {
                     )}
 
                     {isTOC && Array.isArray(slide.overview) && (
-                        <div className="toc-line">
-                            {slide.overview.map((item, idx) => (
-                                <div key={idx} className="toc-item">
-                                    <div className="toc-dot"></div>
-                                    {item}
-                                </div>
-                            ))}
+                        <div style={{ textAlign: 'center', width: '100%' }}>
+                            <div className="toc-grid">
+                                {slide.overview.map((item, idx) => {
+                                    // Split content into title and subtitle if possible, or just use generic description
+                                    const title = item.includes(' - ') ? item.split(' - ')[0] : item;
+                                    const description = "Strategic framework and implementation highlights.";
+                                    return (
+                                        <div key={idx} className="toc-card">
+                                            <div className="toc-badge">0{idx + 1}</div>
+                                            <div className="toc-card-title">{title}</div>
+                                            <div className="toc-card-description">{description}</div>
+                                        </div>
+                                    );
+                                })}
+                                {/* Add an empty dashed card if there's space for a 6th item */}
+                                {slide.overview.length === 5 && (
+                                    <div className="toc-card toc-empty-card"></div>
+                                )}
+                            </div>
+                            <div className="toc-footer-icon">
+                                <Box size={32} />
+                            </div>
                         </div>
                     )}
 

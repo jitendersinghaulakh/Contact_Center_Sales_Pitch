@@ -368,6 +368,7 @@ body {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
 }
+
 /* Dimensional Grid for Slide 4 */
 .dimensions-grid {
     display: grid;
@@ -421,7 +422,7 @@ body {
 .challenge-item:hover {
     background: #fff;
     border-color: var(--primary);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .challenge-number {
@@ -456,7 +457,7 @@ body {
     background: white;
     padding: 2rem;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     border: 1px solid #eee;
     width: 22%;
     text-align: center;
@@ -524,15 +525,16 @@ body {
 }
 
 .title-slide .purpose-label {
-    color: rgba(255,255,255,0.6);
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .title-slide .slide-section {
-    display: none; /* Hide overview on title slide as per image */
+    display: none;
+    /* Hide overview on title slide as per image */
 }
 
 .title-slide .sales-message {
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
 }
 
@@ -551,4 +553,73 @@ body {
     background: transparent !important;
     box-shadow: none !important;
     height: 100%;
+}
+
+/* Redesigned Table of Contents (Slide 2) */
+.toc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 2rem;
+    margin-top: 3rem;
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.toc-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem 1.5rem 1.5rem;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+    transition: var(--transition);
+}
+
+.toc-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+    border-color: var(--accent);
+}
+
+.toc-badge {
+    position: absolute;
+    top: -12px;
+    left: 15px;
+    background: #00BFB3;
+    color: white;
+    padding: 2px 16px;
+    border-radius: 20px;
+    /* Pill shape */
+    font-weight: 700;
+    font-size: 0.8rem;
+    box-shadow: 0 4px 10px rgba(0, 191, 179, 0.2);
+    z-index: 5;
+}
+
+.toc-card-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #001F3F;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.toc-card-description {
+    font-size: 0.9rem;
+    color: #888;
+    font-weight: 400;
+}
+
+.toc-footer-icon {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+    color: #001F3F;
+    opacity: 0.8;
+}
+
+.toc-empty-card {
+    border: 2px dashed #ddd;
+    border-radius: 20px;
 }

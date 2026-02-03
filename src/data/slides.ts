@@ -24,11 +24,11 @@ export const slides: SlideContent[] = [
         title: "Table of Contents",
         purpose: "Signals structure and executive clarity.",
         overview: [
-            "Industry insights and market shifts",
-            "Infosys’ point of view on contact center evolution",
-            "A practical, phased transformation approach",
-            "Infosys offerings and capabilities",
-            "Case studies and proof points"
+            "Industry Insights",
+            "Our Point of View",
+            "Our Approach",
+            "Our Offerings",
+            "Case Study & Clientele"
         ],
         salesMessage: "“We understand the market, we have a point of view, and we know how to execute.”"
     },
