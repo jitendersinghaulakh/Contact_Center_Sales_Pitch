@@ -1,5 +1,5 @@
 import type { SlideContent } from '../data/slides';
-import { ArrowRight, TrendingUp, Zap, Activity, Cpu, Database, Search, MessageSquare, Box } from 'lucide-react';
+import { ArrowRight, TrendingUp, Zap, Search, Box } from 'lucide-react';
 
 interface Props {
     slide: SlideContent;
@@ -10,7 +10,7 @@ const SlideRenderer: React.FC<Props> = ({ slide }) => {
     const isTOC = slide.id === 2;
 
     return (
-        <div className={`slide-wrapper ${isTitleSlide ? 'title-slide' : ''}`}>
+        <div className={`slide-wrapper ${isTitleSlide ? 'title-slide' : ''} slide-id-${slide.id}`}>
             <div className="slide-content">
                 <span className="purpose-label">Slide {slide.id} — {slide.purpose}</span>
 
@@ -83,23 +83,90 @@ const SlideRenderer: React.FC<Props> = ({ slide }) => {
                     )}
 
                     {slide.id === 14 && slide.points && (
-                        <div className="flow-container">
-                            {[
-                                { icon: MessageSquare, title: "Ingest" },
-                                { icon: Cpu, title: "Orchestration" },
-                                { icon: Database, title: "Dynamic Logic" },
-                                { icon: Activity, title: "Value Output" }
-                            ].map((step, idx) => (
-                                <div key={idx} className="flow-step">
-                                    <div className="step-icon">
-                                        <step.icon size={32} />
+                        <div className="look-of-ai-container">
+                            <div className="corner-dec-tr"></div>
+                            <div className="corner-dec-bl"></div>
+                            <div className="look-of-ai-flow">
+                                {/* Pillar 1: INGEST */}
+                                <div className="look-of-ai-step">
+                                    <div className="look-of-ai-icon-box">
+                                        <svg width="120" height="120" viewBox="0 0 120 120">
+                                            {/* Phone */}
+                                            <path d="M25 40c0-5 5-10 10-10h10l5 10-5 10c-5 0-10 5-10 10v10c0 5 5 10 10 10l5 10-5 10H35c-5 0-10-5-10-10V40z" fill="#00BFB3" />
+                                            {/* Chat */}
+                                            <rect x="50" y="30" width="30" height="20" rx="4" fill="#00BFB3" />
+                                            <circle cx="58" cy="40" r="2" fill="white" />
+                                            <circle cx="65" cy="40" r="2" fill="white" />
+                                            <circle cx="72" cy="40" r="2" fill="white" />
+                                            {/* Network nodes */}
+                                            <circle cx="95" cy="35" r="3" fill="#00BFB3" opacity="0.6" />
+                                            <circle cx="85" cy="50" r="3" fill="#00BFB3" opacity="0.6" />
+                                            <circle cx="105" cy="55" r="3" fill="#00BFB3" opacity="0.6" />
+                                            <path d="M95 35l-10 15M95 35l10 20M85 50l20 5" stroke="#00BFB3" strokeWidth="1" opacity="0.6" />
+                                            {/* Mail */}
+                                            <rect x="65" y="65" width="35" height="25" fill="none" stroke="#333" strokeWidth="2" />
+                                            <path d="M65 65l17.5 12.5L100 65" stroke="#333" strokeWidth="2" fill="none" />
+                                        </svg>
+                                        <div className="look-of-ai-arrow-spacer">
+                                            <ArrowRight size={24} />
+                                        </div>
                                     </div>
-                                    <div className="step-title">{step.title}</div>
-                                    <p style={{ fontSize: '0.8rem', color: '#666', marginTop: '0.5rem' }}>
-                                        {slide.points![idx]}
-                                    </p>
+                                    <div className="look-of-ai-title">INGEST</div>
+                                    <div className="look-of-ai-desc">{slide.points[0]}</div>
                                 </div>
-                            ))}
+
+                                {/* Pillar 2: ORCHESTRATION */}
+                                <div className="look-of-ai-step">
+                                    <div className="look-of-ai-icon-box">
+                                        <svg width="120" height="120" viewBox="0 0 120 120">
+                                            {/* Gears */}
+                                            <circle cx="40" cy="50" r="15" fill="none" stroke="#00BFB3" strokeWidth="3" />
+                                            <circle cx="40" cy="75" r="10" fill="none" stroke="#00BFB3" strokeWidth="3" />
+                                            <path d="M35 35l10 10M35 65l10-10" stroke="#00BFB3" strokeWidth="2" />
+                                            {/* Brain */}
+                                            <path d="M70 40c-10 0-15 10-15 20s5 20 15 20h10c10 0 15-10 15-20s-5-20-15-20H70z" fill="none" stroke="#333" strokeWidth="2" />
+                                            <path d="M85 40v40M75 50h20M75 70h20" stroke="#333" strokeWidth="1" />
+                                        </svg>
+                                        <div className="look-of-ai-arrow-spacer">
+                                            <ArrowRight size={24} />
+                                        </div>
+                                    </div>
+                                    <div className="look-of-ai-title">ORCHESTRATION</div>
+                                    <div className="look-of-ai-desc">{slide.points[1]}</div>
+                                </div>
+
+                                {/* Pillar 3: DYNAMIC LOGIC */}
+                                <div className="look-of-ai-step">
+                                    <div className="look-of-ai-icon-box">
+                                        <svg width="120" height="120" viewBox="0 0 120 120">
+                                            <circle cx="60" cy="30" r="10" fill="none" stroke="#00BFB3" strokeWidth="4" />
+                                            <circle cx="30" cy="65" r="10" fill="none" stroke="#00BFB3" strokeWidth="4" />
+                                            <circle cx="90" cy="65" r="10" fill="none" stroke="#00BFB3" strokeWidth="4" />
+                                            <circle cx="45" cy="100" r="10" fill="none" stroke="#00BFB3" strokeWidth="4" />
+                                            <circle cx="75" cy="100" r="10" fill="none" stroke="#00BFB3" strokeWidth="4" />
+                                            <path d="M60 40v15M30 65h60M45 65v25M75 65v25" stroke="#00BFB3" strokeWidth="3" fill="none" />
+                                        </svg>
+                                        <div className="look-of-ai-arrow-spacer">
+                                            <ArrowRight size={24} />
+                                        </div>
+                                    </div>
+                                    <div className="look-of-ai-title">DYNAMIC LOGIC</div>
+                                    <div className="look-of-ai-desc">{slide.points[2]}</div>
+                                </div>
+
+                                {/* Pillar 4: VALUE OUTPUT */}
+                                <div className="look-of-ai-step">
+                                    <div className="look-of-ai-icon-box">
+                                        <svg width="120" height="120" viewBox="0 0 120 120">
+                                            <path d="M60 20a40 40 0 1 1-30 13" fill="none" stroke="#00BFB3" strokeWidth="8" strokeLinecap="round" />
+                                            <path d="M20 33l15-5 5 15" fill="none" stroke="#00BFB3" strokeWidth="8" strokeLinejoin="round" />
+                                            <path d="M60 100a40 40 0 1 1 30-13" fill="none" stroke="#00BFB3" strokeWidth="8" strokeLinecap="round" opacity="0.6" />
+                                        </svg>
+                                    </div>
+                                    <div className="look-of-ai-title">VALUE OUTPUT</div>
+                                    <div className="look-of-ai-desc">{slide.points[3]}</div>
+                                </div>
+                            </div>
                         </div>
                     )}
 
