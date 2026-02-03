@@ -25,6 +25,17 @@ export const generatePPT = (slides: SlideContent[]) => {
         } else {
             s.background = { color: "FFFFFF" };
 
+            // Branded Header
+            s.addText("INFOSYS ", {
+                x: 0.5, y: 0.15, w: 1.5, fontSize: 10, bold: true, color: "001F3F"
+            });
+            s.addText("Consulting", {
+                x: 1.15, y: 0.15, w: 2.0, fontSize: 10, color: "007CC3"
+            });
+            s.addShape(pres.ShapeType.line, {
+                x: 0.5, y: 0.4, w: 12.3, h: 0, line: { color: "EEEEEE", width: 1 }
+            });
+
             // Add corner decorations for Slide 3 if possible with shapes
             if (slide.id === 3) {
                 s.addShape(pres.ShapeType.ellipse, {
@@ -94,6 +105,13 @@ export const generatePPT = (slides: SlideContent[]) => {
                     fontSize: 10, color: "888888"
                 });
             });
+
+            // Add Cube Icon at bottom
+            s.addShape(pres.ShapeType.cube, {
+                x: 6.0, y: 6.5, w: 0.8, h: 0.8,
+                fill: { color: "001F3F" },
+                line: { color: "00BFB3", width: 1 }
+            });
         }
 
         // Defining 'The Look' (Slide 3) 4-Pillar Flow
@@ -102,11 +120,28 @@ export const generatePPT = (slides: SlideContent[]) => {
             pillars.forEach((pillar, idx) => {
                 const xPos = 0.5 + (idx * 3.2);
 
-                // Icon Placeholder Shape
+                // Icon Background Circle
                 s.addShape(pres.ShapeType.ellipse, {
-                    x: xPos + 0.5, y: 2.2, w: 1.5, h: 1.5,
-                    line: { color: "00BFB3", width: 2 }
+                    x: xPos + 0.5, y: 1.8, w: 1.6, h: 1.6,
+                    fill: { color: "F4FBFB" },
+                    line: { color: "00BFB3", width: 1.5 }
                 });
+
+                // Representative Icons using Shapes
+                if (idx === 0) { // INGEST - Chat/Phone visual
+                    s.addShape(pres.ShapeType.roundRect, { x: xPos + 0.9, y: 2.15, w: 0.8, h: 0.6, rectRadius: 0.2, fill: { color: "00BFB3" } });
+                    s.addShape(pres.ShapeType.triangle, { x: xPos + 0.9, y: 2.65, w: 0.2, h: 0.2, fill: { color: "00BFB3" }, flipV: true });
+                } else if (idx === 1) { // ORCHESTRATION - Gears
+                    s.addShape(pres.ShapeType.gear6, { x: xPos + 0.8, y: 2.1, w: 0.7, h: 0.7, fill: { color: "00BFB3" } });
+                    s.addShape(pres.ShapeType.gear9, { x: xPos + 1.2, y: 2.5, w: 0.5, h: 0.5, fill: { color: "333333" } });
+                } else if (idx === 2) { // DYNAMIC LOGIC - Flow/Tree
+                    s.addShape(pres.ShapeType.ellipse, { x: xPos + 1.1, y: 2.05, w: 0.4, h: 0.4, fill: { color: "00BFB3" } });
+                    s.addShape(pres.ShapeType.ellipse, { x: xPos + 0.7, y: 2.7, w: 0.4, h: 0.4, fill: { color: "00BFB3" } });
+                    s.addShape(pres.ShapeType.ellipse, { x: xPos + 1.5, y: 2.7, w: 0.4, h: 0.4, fill: { color: "00BFB3" } });
+                } else if (idx === 3) { // VALUE OUTPUT - Cycle
+                    s.addShape(pres.ShapeType.arc, { x: xPos + 0.8, y: 2.1, w: 1.0, h: 1.0, line: { color: "00BFB3", width: 4 } });
+                    s.addShape(pres.ShapeType.triangle, { x: xPos + 1.6, y: 2.4, w: 0.2, h: 0.2, fill: { color: "00BFB3" }, rotate: 90 });
+                }
 
                 // Pillar Title
                 s.addText(pillar, {
@@ -122,16 +157,46 @@ export const generatePPT = (slides: SlideContent[]) => {
 
                 // Arrow
                 if (idx < 3) {
-                    s.addShape(pres.ShapeType.rightArrow, {
-                        x: xPos + 2.6, y: 2.8, w: 0.6, h: 0.3,
-                        fill: { color: "EEEEEE" }
+                    s.addShape(pres.ShapeType.line, {
+                        x: xPos + 2.5, y: 2.6, w: 0.8, h: 0,
+                        line: { color: "EEEEEE", width: 2 }
                     });
                 }
             });
         }
 
-        // General Content (Overview & Points) - Skip for Slide 1, 2, 3
-        else if (slide.id !== 1 && slide.id !== 2 && slide.id !== 3) {
+        // Dimensions Grid (Slide 5)
+        else if (slide.id === 5 && slide.points) {
+            slide.points.forEach((point, idx) => {
+                const col = idx % 2;
+                const row = Math.floor(idx / 2);
+                const xPos = 0.5 + (col * 6.2);
+                const yPos = 2.2 + (row * 1.8);
+                const [title, desc] = point.split(' — ');
+
+                s.addShape(pres.ShapeType.roundRect, {
+                    x: xPos, y: yPos, w: 5.8, h: 1.5,
+                    fill: { color: "F8FBFF" },
+                    line: { color: "007CC3", width: 1 }
+                });
+                s.addShape(pres.ShapeType.ellipse, { x: xPos + 0.2, y: yPos + 0.3, w: 0.15, h: 0.15, fill: { color: "007CC3" } });
+                s.addText(title, { x: xPos + 0.4, y: yPos + 0.3, w: 5.0, fontSize: 16, bold: true, color: "001F3F" });
+                if (desc) s.addText(desc, { x: xPos + 0.4, y: yPos + 0.8, w: 5.0, fontSize: 11, color: "666666" });
+            });
+        }
+
+        // Challenges List (Slide 6)
+        else if (slide.id === 6 && slide.points) {
+            slide.points.forEach((point, idx) => {
+                const yPos = 2.0 + (idx * 0.9);
+                s.addShape(pres.ShapeType.rect, { x: 0.5, y: yPos, w: 0.6, h: 0.6, fill: { color: "001F3F" } });
+                s.addText(`${idx + 1}`, { x: 0.5, y: yPos, w: 0.6, h: 0.6, fontSize: 18, bold: true, color: "FFFFFF", align: "center" });
+                s.addText(point, { x: 1.3, y: yPos + 0.1, w: 10.0, fontSize: 14, color: "1A1A1A" });
+            });
+        }
+
+        // General Content (Overview & Points) - Skip for slides with custom layouts
+        else if (![1, 2, 3, 5, 6].includes(slide.id)) {
             let yPos = 1.8;
             if (typeof slide.overview === "string") {
                 s.addText(slide.overview, {
